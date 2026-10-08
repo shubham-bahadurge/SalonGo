@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SalonGo - Book your salon. Skip the wait.</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/extra.css">
+</head>
+<body>
+    {% include "_nav.html" %}
+
+    <section class="hero">
+        <h1>Book your salon. <span>Skip the wait.</span></h1>
+        <p>Find nearby salons, see live availability, and book instantly.</p>
+
+        <div class="search-box">
+            <select id="location" aria-label="Select location">
+                {% for loc in locations %}
+                <option>üìç {{ loc }}</option>
+                {% endfor %}
+            </select>
+            <input id="search" type="text" placeholder="Search salons or services" aria-label="Search">
+        </div>
+
+        <div class="filters">
+            <button class="small-btn" type="button" id="useLocation">üìç Use my real location</button>
+            <select id="distance" aria-label="Distance">
+                <option value="100000">Any distance</option>
+                <option value="1">Within 1 km</option>
+                <option value="2">Within 2 km</option>
+                <option value="5">Within 5 km</option>
+            </select>
+            <label class="toggle">
+                <input id="onlyAvailable" type="checkbox"> Available now only
+            </label>
+  ∂ªßq´^

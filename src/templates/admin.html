@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - SalonGo</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/extra.css">
+</head>
+<body>
+    {% include "_nav.html" %}
+    <main class="container">
+        <h1>Admin</h1>
+        {% if notice %}<p class="message ok">{{ notice }}</p>{% endif %}
+        <div class="stats">
+            <div><strong>{{ stats.customers }}</strong><span>Customers</span></div>
+            <div><strong>{{ stats.owners }}</strong><span>Salon owners</span></div>
+            <div><strong>{{ stats.salons }}</strong><span>Live salons</span></div>
+            <div><strong>{{ stats.pending }}</strong><span>Awaiting approval</span></div>
+            <div><strong>{{ stats.bookings }}</strong><span>Bookings</span></div>
+            <div><strong>â‚¹{{ stats.revenue }}</strong><span>Completed value</span></div>
+            <div><strong>{{ stats.reviews }}</strong><span>Reviews</span></div>
+        </div>
+
+        <h2>Salons awaiting approval</h2>
+        {% if not lists.pending %}<p class="empty">Nothing waiting.</p>{% else %}
+        <div class="table-wrap"><table class="table">
+            <tr><th>Salon</th><th>Owner</th><th>Email</th><th></th></tr>
+            {% for s in lists.pending %}
+            <tr><td>{{ s.name }}</td><td>{{ s.owner_name }}</td><td>{{ s.e¶»§q«^
