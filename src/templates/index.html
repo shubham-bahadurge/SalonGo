@@ -1,93 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SalonGo — Find your salon</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/auth.css">
-    <link rel="stylesheet" href="/css/extra.css">
-    <style>
-        .home-page{background:#fff;min-height:calc(100vh - 72px)}
-        .home-hero{padding:52px 22px 30px;text-align:center;background:linear-gradient(180deg,#faf8ff 0%,#fff 100%)}
-        .home-hero h1{margin:0;font-size:clamp(2rem,5vw,3.45rem);line-height:1.08;letter-spacing:-.045em;color:#171717}
-        .home-hero h1 span{color:#7c3aed}
-        .home-hero p{margin:14px auto 28px;color:#6b7280;max-width:620px;font-size:1.02rem}
-        .home-search{max-width:850px;margin:auto;display:grid;grid-template-columns:180px 1fr auto;gap:10px;padding:10px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 12px 35px rgba(31,41,55,.09)}
-        .home-search select,.home-search input{height:48px;border:1px solid #e5e7eb;border-radius:10px;padding:0 14px;background:#fff;font:inherit;outline:none}
-        .home-search input:focus,.home-search select:focus{border-color:#a78bfa;box-shadow:0 0 0 3px #ede9fe}
-        .search-submit{height:48px;border:0;border-radius:10px;padding:0 22px;background:#7c3aed;color:#fff;font-weight:750;cursor:pointer}
-        .search-submit:hover{background:#6d28d9}
-        .home-filters{max-width:850px;margin:13px auto 0;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;color:#6b7280;font-size:.9rem}
-        .home-filters select,.home-location-btn{height:38px;border:1px solid #e5e7eb;background:#fff;border-radius:9px;padding:0 12px;color:#4b5563}
-        .home-location-btn{cursor:pointer}.home-location-btn:hover{border-color:#c4b5fd;color:#6d28d9}
-        .home-location-status{font-size:.82rem}
-        .home-content{max-width:1120px;margin:0 auto;padding:28px 22px 70px}
-        .section-heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:0 0 17px}
-        .section-heading h2{margin:0;font-size:1.35rem;color:#171717}.section-heading p{margin:4px 0 0;color:#9ca3af;font-size:.9rem}
-        .category-row{display:flex;gap:9px;overflow:auto;padding-bottom:5px;margin-bottom:25px}
-        .chip{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:9px 15px;white-space:nowrap;cursor:pointer;color:#4b5563;font-weight:650}
-        .chip:hover,.chip.active{background:#f5f3ff;border-color:#c4b5fd;color:#6d28d9}
-        .salon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-        .salon-card{border:1px solid #e8e8ee;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 7px 22px rgba(17,24,39,.05);transition:.18s ease}
-        .salon-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(17,24,39,.09)}
-        .salon-cover{height:125px;background:linear-gradient(135deg,#f5f3ff,#fafafa);display:grid;place-items:center;font-size:3rem}
-        .salon-body{padding:16px}.salon-body h3{margin:0 0 7px;color:#171717;font-size:1.05rem}
-        .salon-meta{color:#6b7280;font-size:.84rem;display:flex;gap:10px;flex-wrap:wrap}
-        .salon-status{display:inline-flex;margin-top:12px;padding:5px 9px;border-radius:999px;background:#f5f3ff;color:#6d28d9;font-size:.76rem;font-weight:750}
-        .salon-open{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
-        .rating{font-weight:750;color:#374151}.book-btn{border:0;border-radius:9px;background:#171717;color:#fff;padding:9px 13px;text-decoration:none;font-size:.82rem;font-weight:700}
-        .book-btn:hover{background:#7c3aed}.empty-state{padding:35px;text-align:center;color:#6b7280;border:1px dashed #d1d5db;border-radius:15px}
-        .support-float{position:fixed;right:20px;bottom:20px;border:0;border-radius:999px;padding:12px 16px;background:#171717;color:#fff;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.18);cursor:pointer}
-        @media(max-width:800px){.salon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-search{grid-template-columns:1fr}.search-submit{width:100%}}
-        @media(max-width:520px){.home-hero{padding:35px 15px 25px}.home-content{padding:24px 15px 55px}.salon-grid{grid-template-columns:1fr}.sg-navbar{height:64px!important}}
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalonGo — Find your salon</title>
+<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/css/auth.css">
+<link rel="stylesheet" href="/css/extra.css">
+<style>
+*{--black:#111;--white:#fff;--gray:#777}
+body{background:#fff;color:var(--black)}
+.home-page{background:#fff;min-height:calc(100vh - 72px)}
+.home-hero{padding:52px 22px 30px;text-align:center;background:#fff}
+.home-hero h1{margin:0;font-size:clamp(2rem,5vw,3.45rem);line-height:1.08;letter-spacing:-.045em;color:#111}
+.home-hero h1 span{color:#111}
+.home-hero p{margin:14px auto 28px;color:#666;max-width:620px;font-size:1.02rem}
+.home-search{max-width:850px;margin:auto;display:grid;grid-template-columns:180px 1fr auto;gap:10px;padding:10px;background:#fff;border:1px solid #111;border-radius:12px;box-shadow:0 10px 25px rgba(0,0,0,.08)}
+.home-search select,.home-search input{height:48px;border:1px solid #ccc;border-radius:8px;padding:0 14px;background:#fff;color:#111;font:inherit;outline:none}
+.home-search input:focus,.home-search select:focus{border-color:#111;box-shadow:0 0 0 2px #eee}
+.search-submit{height:48px;border:0;border-radius:8px;padding:0 22px;background:#111;color:#fff;font-weight:750;cursor:pointer}
+.search-submit:hover{background:#333}
+.home-filters{max-width:850px;margin:13px auto 0;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;color:#555;font-size:.9rem}
+.home-filters select,.home-location-btn{height:38px;border:1px solid #bbb;background:#fff;border-radius:8px;padding:0 12px;color:#111}
+.home-location-btn{cursor:pointer}.home-location-btn:hover{background:#111;color:#fff}
+.home-location-status{font-size:.82rem}
+.home-content{max-width:1120px;margin:0 auto;padding:28px 22px 70px}
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:0 0 17px}
+.section-heading h2{margin:0;font-size:1.35rem;color:#111}.section-heading p{margin:4px 0 0;color:#777;font-size:.9rem}
+.category-row{display:flex;gap:9px;overflow:auto;padding-bottom:5px;margin-bottom:25px}
+.chip{border:1px solid #bbb;background:#fff;border-radius:999px;padding:9px 15px;white-space:nowrap;cursor:pointer;color:#222;font-weight:650}
+.chip:hover,.chip.active{background:#111;border-color:#111;color:#fff}
+.salon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
+.salon-card{border:1px solid #ddd;border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 7px 22px rgba(0,0,0,.06);transition:.18s ease}
+.salon-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,.12)}
+.salon-cover{height:125px;background:#f2f2f2;display:grid;place-items:center;font-size:3rem;filter:grayscale(1)}
+.salon-body{padding:16px}.salon-body h3{margin:0 0 7px;color:#111;font-size:1.05rem}
+.salon-meta{color:#666;font-size:.84rem;display:flex;gap:10px;flex-wrap:wrap}
+.salon-status{display:inline-flex;margin-top:12px;padding:5px 9px;border-radius:999px;background:#111;color:#fff;font-size:.76rem;font-weight:750}
+.salon-open{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.rating{font-weight:750;color:#222}.book-btn{border:0;border-radius:8px;background:#111;color:#fff;padding:9px 13px;text-decoration:none;font-size:.82rem;font-weight:700}
+.book-btn:hover{background:#444}.empty-state{padding:35px;text-align:center;color:#666;border:1px dashed #aaa;border-radius:15px}
+.support-float{position:fixed;right:20px;bottom:20px;border:1px solid #111;border-radius:999px;padding:12px 16px;background:#111;color:#fff;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.18);cursor:pointer}
+.sg-navbar{background:#fff!important;border-bottom:1px solid #ddd!important;box-shadow:0 4px 18px rgba(0,0,0,.07)!important}
+.sg-brand{color:#111!important}.sg-brand span{color:#111!important}
+.sg-icon-button,.sg-profile-button{background:#fff!important;border-color:#ccc!important;color:#111!important}
+.sg-icon-button:hover,.sg-profile-button:hover{border-color:#111!important;background:#f5f5f5!important;color:#111!important}
+.sg-avatar{background:#111!important;color:#fff!important}
+.sg-sign-button{background:#111!important;color:#fff!important}
+.sg-sign-button:hover{background:#333!important}
+.sg-dropdown{border-color:#ddd!important}.sg-dropdown a:hover,.sg-dropdown button:hover{background:#f2f2f2!important;color:#111!important}
+@media(max-width:800px){.salon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-search{grid-template-columns:1fr}.search-submit{width:100%}}
+@media(max-width:520px){.home-hero{padding:35px 15px 25px}.home-content{padding:24px 15px 55px}.salon-grid{grid-template-columns:1fr}.sg-navbar{height:64px!important}}
+</style>
 </head>
 <body>
-    {% include "_nav.html" %}
-    <main class="home-page">
-        <section class="home-hero">
-            <h1>Find a salon. <span>Book instantly.</span></h1>
-            <p>Discover nearby salons, compare services and reserve your preferred time without waiting.</p>
-            <div class="home-search">
-                <select id="location" aria-label="Select location">
-                    {% for loc in locations %}<option value="{{ loc }}">📍 {{ loc }}</option>{% endfor %}
-                </select>
-                <input id="search" type="search" placeholder="Search salon or service" aria-label="Search salons or services">
-                <button class="search-submit" type="button" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">Search</button>
-            </div>
-            <div class="home-filters">
-                <button class="home-location-btn" id="useLocation" type="button">📍 Use my location</button>
-                <select id="distance" aria-label="Distance">
-                    <option value="100000">Any distance</option><option value="1">Within 1 km</option><option value="2">Within 2 km</option><option value="5">Within 5 km</option>
-                </select>
-                <label><input id="onlyAvailable" type="checkbox"> Available now</label>
-                <span class="home-location-status" id="locStatus"></span>
-            </div>
-        </section>
-        <section class="home-content">
-            <div class="section-heading"><div><h2>Nearby salons</h2><p>Choose a salon and book your service.</p></div></div>
-            <div class="category-row" id="chips">
-                <button class="chip active" type="button" data-category="">All</button>
-                {% for category, icon in categories %}<button class="chip" type="button" data-category="{{ category|lower }}">{{ icon }} {{ category }}</button>{% endfor %}
-            </div>
-            <div class="salon-grid" id="grid">
-                {% for salon in salons %}
-                <article class="salon-card card" data-name="{{ salon.name|lower }}" data-services="{{ salon.services|default('', true)|lower }}" data-distance="{{ salon.distance_km|default(0, true) }}" data-status="{{ salon.status|default('available', true) }}">
-                    <div class="salon-cover">{{ salon.emoji|default('💈', true) }}</div>
-                    <div class="salon-body">
-                        <h3>{{ salon.name }}</h3>
-                        <div class="salon-meta"><span>📍 {{ salon.address|default('Pune', true) }}</span><span>{{ salon.distance_km|default(0, true) }} km</span></div>
-                        <span class="salon-status">{{ salon.status|default('Available', true)|capitalize }}</span>
-                        <div class="salon-open"><span class="rating">★ {{ salon.rating|default('New', true) }}</span><a class="book-btn" href="/salon/{{ salon.id }}">View &amp; Book</a></div>
-                    </div>
-                </article>
-                {% endfor %}
-            </div>
-            <div id="empty" class="empty-state" hidden>No salons match your search.</div>
-        </section>
-    </main>
-    <button class="support-float" type="button" onclick="alert('Customer support will be available soon.')">Customer support</button>
-    <script src="/js/app.js"></script>
+{% include "_nav.html" %}
+<main class="home-page">
+<section class="home-hero">
+<h1>Find a salon. <span>Book instantly.</span></h1>
+<p>Discover nearby salons, compare services and reserve your preferred time without waiting.</p>
+<div class="home-search">
+<select id="location" aria-label="Select location">{% for loc in locations %}<option value="{{ loc }}">📍 {{ loc }}</option>{% endfor %}</select>
+<input id="search" type="search" placeholder="Search salon or service" aria-label="Search salons or services">
+<button class="search-submit" type="button" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">Search</button>
+</div>
+<div class="home-filters">
+<button class="home-location-btn" id="useLocation" type="button">📍 Use my location</button>
+<select id="distance" aria-label="Distance"><option value="100000">Any distance</option><option value="1">Within 1 km</option><option value="2">Within 2 km</option><option value="5">Within 5 km</option></select>
+<label><input id="onlyAvailable" type="checkbox"> Available now</label>
+<span class="home-location-status" id="locStatus"></span>
+</div>
+</section>
+<section class="home-content">
+<div class="section-heading"><div><h2>Nearby salons</h2><p>Choose a salon and book your service.</p></div></div>
+<div class="category-row" id="chips">
+<button class="chip active" type="button" data-category="">All</button>
+{% for category, icon in categories %}<button class="chip" type="button" data-category="{{ category|lower }}">{{ icon }} {{ category }}</button>{% endfor %}
+</div>
+<div class="salon-grid" id="grid">
+{% for salon in salons %}
+<article class="salon-card card" data-name="{{ salon.name|lower }}" data-services="{{ salon.services|default('', true)|lower }}" data-distance="{{ salon.distance_km|default(0, true) }}" data-status="{{ salon.status|default('available', true) }}">
+<div class="salon-cover">{{ salon.emoji|default('💈', true) }}</div>
+<div class="salon-body"><h3>{{ salon.name }}</h3><div class="salon-meta"><span>📍 {{ salon.address|default('Pune', true) }}</span><span>{{ salon.distance_km|default(0, true) }} km</span></div><span class="salon-status">{{ salon.status|default('Available', true)|capitalize }}</span><div class="salon-open"><span class="rating">★ {{ salon.rating|default('New', true) }}</span><a class="book-btn" href="/salon/{{ salon.id }}">View &amp; Book</a></div></div>
+</article>
+{% endfor %}
+</div>
+<div id="empty" class="empty-state" hidden>No salons match your search.</div>
+</section>
+</main>
+<button class="support-float" type="button" onclick="alert('Customer support will be available soon.')">Customer support</button>
+<script src="/js/app.js"></script>
 </body>
 </html>
