@@ -92,7 +92,7 @@
       <div class="sg-chat-panel" id="sgChatPanel" role="dialog" aria-label="SalonGo support chat" hidden>
         <header class="sg-chat-head"><div class="sg-chat-avatar">S</div><div class="sg-chat-title">SalonGo Assistant<span class="sg-chat-subtitle">Booking help · Pune</span></div><button class="sg-chat-close" id="sgChatClose" type="button" aria-label="Close chat">×</button></header>
         <div class="sg-chat-messages" id="sgChatMessages" aria-live="polite"><div class="sg-chat-msg">Hi! 👋 I can help you find salons, understand booking steps, payment options, cancellations, or salon registration. What do you need?</div></div>
-        <div class="sg-chat-quick" id="sgChatQuick"><button type="button" data-sg-chat="How do I book?">How to book</button><button type="button" data-sg-chat="Payment options">Payments</button><button type="button" data-sg-chat="Cancel my booking">Cancellation</button><button type="button" data-sg-chat="How do I register my salon?">Salon registration</button></div>
+        <div class="sg-chat-quick" id="sgChatQuick"><button type="button" data-sg-chat="How do I book?">How to book</button><button type="button" data-sg-chat="Payment options">Payments</button><button type="button" data-sg-chat="Cancel my booking">Cancellation</button></div>
         <form class="sg-chat-form" id="sgChatForm"><input id="sgChatInput" name="message" autocomplete="off" maxlength="500" placeholder="Ask SalonGo..." aria-label="Message" required><button type="submit">Send</button></form>
         <div class="sg-chat-note">Automated demo assistant · No live agent connected</div>
       </div>
@@ -122,7 +122,7 @@
         if(/\b(book|booking|appointment|reserve|stylist|barber)\b/.test(q))return 'To book: browse salons, choose “View & Book”, select your service and follow the booking steps. Availability shown may be demo data; check salon details before relying on a time.';
         if(/\b(cancel|cancellation|reschedule)\b/.test(q))return 'Open “Bookings” from the menu or your profile, sign in if needed, and check your booking details for available cancellation options. If no option appears, contact the salon directly.';
         if(/\b(payment|pay|online|upi|cash|card)\b/.test(q))return 'Payment options depend on the salon and checkout flow. Only enter payment details on the official checkout when you are sure the booking and amount are correct. This assistant does not take payments.';
-        if(/\b(owner|register.*salon|list.*salon|my salon|salon registration)\b/.test(q))return 'To register your salon, open the salon-owner or registration option in the site menu/profile. Sign in if prompted, then add your salon name, address, services, prices, and contact details. Review everything before submitting.';
+        if(/\b(owner|register.*salon|list.*salon|my salon|salon registration)\b/.test(q))return 'Use the salon-owner option in the menu/profile to explore registration. You may need to sign in and provide salon details.';
         if(/\b(location|nearby|area|pune|distance)\b/.test(q))return 'Use the location selector and search field on the page. If you enable location, your browser may ask permission; you can also choose a location manually.';
         if(/\b(human|agent|support|contact|help)\b/.test(q))return 'I’m the automated demo assistant, not a live agent. For booking-specific issues, use the site’s booking details or contact the salon directly.';
         if(/\b(thank|thanks)\b/.test(q))return 'You’re welcome! ✨ Want help with booking steps, payments, or finding a salon?';
