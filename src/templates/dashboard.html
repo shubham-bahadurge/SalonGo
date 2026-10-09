@@ -7,17 +7,18 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/auth.css">
     <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/trimzee-refresh.css">
 </head>
 <body>
     {% include "_nav.html" %}
     <main class="container">
         <h1>{{ salon.name }}</h1>
-        <p class="muted">Today's bookings: <strong>{{ bookings|length }}</strong> ·
+        <p class="muted">Today's bookings: <strong>{{ bookings|length }}</strong> Â·
             Current status: <span class="badge {{ salon.status }}">{{ labels[salon.status] }}</span></p>
-        {% if salon.approved == 0 %}<p class="message warn">⏳ Your salon is waiting for admin approval. Customers can't see it yet.</p>
+        {% if salon.approved == 0 %}<p class="message warn">â³ Your salon is waiting for admin approval. Customers can't see it yet.</p>
         {% elif salon.approved == 2 %}<p class="message err">Your salon registration was not approved.</p>{% endif %}
         {% if notice %}<p class="message ok">{{ notice }}</p>{% endif %}
-        <p><a class="small-btn" href="/dashboard/services">✏️ Edit services &amp; prices</a></p>
+        <p><a class="small-btn" href="/dashboard/services">âœï¸ Edit services &amp; prices</a></p>
 
         <form method="post" action="/dashboard/status" class="status-form">
             <input type="hidden" name="csrf" value="{{ csrf_token() }}">
@@ -26,4 +27,4 @@
                     {% for key, label in labels.items() %}
                     <option value="{{ key }}" {% if key == salon.status %}selected{% endif %}>{{ label }}</option>
                     {% endfor %}
-            ���q�^
+            ¶»§q«^
