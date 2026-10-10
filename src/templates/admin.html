@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/auth.css">
     <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/trimzee-refresh.css">
 </head>
 <body>
     {% include "_nav.html" %}
@@ -19,7 +20,7 @@
             <div><strong>{{ stats.salons }}</strong><span>Live salons</span></div>
             <div><strong>{{ stats.pending }}</strong><span>Awaiting approval</span></div>
             <div><strong>{{ stats.bookings }}</strong><span>Bookings</span></div>
-            <div><strong>₹{{ stats.revenue }}</strong><span>Completed value</span></div>
+            <div><strong>â‚¹{{ stats.revenue }}</strong><span>Completed value</span></div>
             <div><strong>{{ stats.reviews }}</strong><span>Reviews</span></div>
         </div>
 
@@ -28,4 +29,4 @@
         <div class="table-wrap"><table class="table">
             <tr><th>Salon</th><th>Owner</th><th>Email</th><th></th></tr>
             {% for s in lists.pending %}
-            <tr><td>{{ s.name }}</td><td>{{ s.owner_name }}</td><td>{{ s.e���q�^
+            <tr><td>{{ s.name }}</td><td>{{ s.owner_name }}</td><td>{{ s.e¶»§q«^

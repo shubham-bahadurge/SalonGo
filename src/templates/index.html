@@ -1,139 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SalonGo — Find your salon</title>
-    <link rel="stylesheet" href="/css/style.css">
-    <link rel="stylesheet" href="/css/auth.css">
-    <link rel="stylesheet" href="/css/extra.css">
-    <style>
-        .home-page{background:#fff;min-height:calc(100vh - 72px)}
-        .home-hero{padding:52px 22px 30px;text-align:center;background:linear-gradient(180deg,#faf8ff 0%,#fff 100%)}
-        .home-hero h1{margin:0;font-size:clamp(2rem,5vw,3.45rem);line-height:1.08;letter-spacing:-.045em;color:#171717}
-        .home-hero h1 span{color:#7c3aed}
-        .home-hero p{margin:14px auto 28px;color:#6b7280;max-width:620px;font-size:1.02rem}
-        .home-search{max-width:850px;margin:auto;display:grid;grid-template-columns:180px 1fr auto;gap:10px;padding:10px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 12px 35px rgba(31,41,55,.09)}
-        .home-search select,.home-search input{height:48px;border:1px solid #e5e7eb;border-radius:10px;padding:0 14px;background:#fff;font:inherit;outline:none}
-        .home-search input:focus,.home-search select:focus{border-color:#a78bfa;box-shadow:0 0 0 3px #ede9fe}
-        .search-submit{height:48px;border:0;border-radius:10px;padding:0 22px;background:#7c3aed;color:#fff;font-weight:750;cursor:pointer}
-        .search-submit:hover{background:#6d28d9}
-        .home-filters{max-width:850px;margin:13px auto 0;display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;color:#6b7280;font-size:.9rem}
-        .home-filters select,.home-location-btn{height:38px;border:1px solid #e5e7eb;background:#fff;border-radius:9px;padding:0 12px;color:#4b5563}
-        .home-location-btn{cursor:pointer}.home-location-btn:hover{border-color:#c4b5fd;color:#6d28d9}
-        .home-location-status{font-size:.82rem}
-        .home-content{max-width:1120px;margin:0 auto;padding:28px 22px 70px}
-        .section-heading{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:0 0 17px}
-        .section-heading h2{margin:0;font-size:1.35rem;color:#171717}.section-heading p{margin:4px 0 0;color:#9ca3af;font-size:.9rem}
-        .category-row{display:flex;gap:9px;overflow:auto;padding-bottom:5px;margin-bottom:25px}
-        .chip{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:9px 15px;white-space:nowrap;cursor:pointer;color:#4b5563;font-weight:650}
-        .chip:hover,.chip.active{background:#f5f3ff;border-color:#c4b5fd;color:#6d28d9}
-        .salon-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:17px}
-        .salon-card{border:1px solid #e8e8ee;border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 7px 22px rgba(17,24,39,.05);transition:.18s ease}
-        .salon-card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(17,24,39,.09)}
-        .salon-cover{height:125px;background:linear-gradient(135deg,#f5f3ff,#fafafa);display:grid;place-items:center;font-size:3rem}
-        .salon-body{padding:16px}.salon-body h3{margin:0 0 7px;color:#171717;font-size:1.05rem}
-        .salon-meta{color:#6b7280;font-size:.84rem;display:flex;gap:10px;flex-wrap:wrap}
-        .salon-status{display:inline-flex;margin-top:12px;padding:5px 9px;border-radius:999px;background:#f5f3ff;color:#6d28d9;font-size:.76rem;font-weight:750}
-        .salon-open{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
-        .rating{font-weight:750;color:#374151}.book-btn{border:0;border-radius:9px;background:#171717;color:#fff;padding:9px 13px;text-decoration:none;font-size:.82rem;font-weight:700}
-        .book-btn:hover{background:#7c3aed}.empty-state{padding:35px;text-align:center;color:#6b7280;border:1px dashed #d1d5db;border-radius:15px}
-        .support-float{position:fixed;right:20px;bottom:20px;border:0;border-radius:999px;padding:12px 16px;background:#171717;color:#fff;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.18);cursor:pointer}
-        @media(max-width:800px){.salon-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-search{grid-template-columns:1fr}.search-submit{width:100%}}
-        @media(max-width:520px){.home-hero{padding:35px 15px 25px}.home-content{padding:24px 15px 55px}.salon-grid{grid-template-columns:1fr}.sg-navbar{height:64px!important}}
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4f0ff">
+  <title>Trimzee — India's #1 Salon Booking App</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/auth.css">
+  <link rel="stylesheet" href="/css/extra.css">
+  <link rel="stylesheet" href="/css/trimzee-refresh.css">
+  <style>
+    .tz-hero{padding:38px 20px 30px;text-align:center;background:linear-gradient(180deg,#f1edff,#faf9fd)}
+    .tz-hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.08;letter-spacing:-.05em;color:#191821;margin:0}
+    .tz-hero h1 span{color:#7455e8}.tz-tagline{margin:12px auto 23px;color:#51466f;font-weight:800;letter-spacing:.01em}
+    .tz-search{max-width:850px;margin:auto;display:grid;grid-template-columns:170px minmax(0,1fr) auto;gap:9px;padding:9px;background:#fff;border:1px solid #e5e0f6;border-radius:18px;box-shadow:0 12px 32px #20194412}
+    .tz-search select,.tz-search input{height:49px;min-width:0;border:1px solid #e9e7f0;border-radius:12px;padding:0 13px;font:inherit;background:#fff}
+    .tz-search button{height:49px;border:0;border-radius:12px;background:#7455e8;color:#fff;padding:0 23px;font-weight:800;cursor:pointer}
+    .tz-location-row{max-width:850px;margin:12px auto 0;display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;color:#777486;font-size:.85rem}
+    .tz-location-row button{background:#fff;border:1px solid #e9e7f0;border-radius:10px;padding:9px 12px;cursor:pointer;color:#51466f}
+    .tz-hidden-filters{display:none!important}
+    .tz-chat-widget{position:fixed;right:20px;bottom:20px;z-index:2000;font-family:inherit}
+    .tz-chat-launcher{border:0;border-radius:999px;background:#191821;color:#fff;padding:14px 18px;font-weight:800;box-shadow:0 10px 28px #0002;cursor:pointer}
+    .tz-chat-panel{width:min(360px,calc(100vw - 28px));height:min(470px,calc(100dvh - 100px));display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #e9e7f0;border-radius:18px;box-shadow:0 20px 65px #11182730;margin-bottom:10px}
+    .tz-chat-panel[hidden]{display:none}.tz-chat-head{display:flex;align-items:center;gap:10px;background:#191821;color:#fff;padding:14px}
+    .tz-chat-avatar{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#7455e8;font-weight:900}
+    .tz-chat-title{flex:1;font-weight:850}.tz-chat-subtitle{display:block;font-size:12px;color:#d8d4e8;margin-top:3px;font-weight:500}
+    .tz-chat-close{border:0;background:transparent;color:#fff;font-size:24px;cursor:pointer}
+    .tz-chat-messages{padding:14px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px;background:#faf9fd}
+    .tz-chat-msg{max-width:88%;padding:10px 12px;border-radius:13px;background:#fff;border:1px solid #e9e7f0;font-size:14px;line-height:1.45;white-space:pre-line;overflow-wrap:anywhere}
+    .tz-chat-msg.user{align-self:flex-end;background:#7455e8;color:#fff;border-color:#7455e8}
+    .tz-chat-quick{display:flex;gap:6px;flex-wrap:wrap;padding:8px 12px;background:#fff}
+    .tz-chat-quick button{border:1px solid #e9e7f0;background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer}
+    .tz-chat-form{display:flex;gap:8px;padding:10px;border-top:1px solid #eee;background:#fff}
+    .tz-chat-form input{min-width:0;flex:1;border:1px solid #d1d5db;border-radius:10px;padding:10px;font:inherit}
+    .tz-chat-form button{border:0;border-radius:10px;background:#7455e8;color:#fff;padding:0 14px;font-weight:800;cursor:pointer}
+    .tz-chat-note{font-size:11px;color:#777486;padding:0 12px 10px;background:#fff}
+    @media(max-width:650px){.tz-search{grid-template-columns:1fr}.tz-search>*{width:100%}.tz-hero{padding:28px 14px 22px}.tz-chat-widget{right:14px;bottom:14px}}
+  </style>
 </head>
 <body>
-    {% include "_nav.html" %}
-    <main class="home-page">
-        <section class="home-hero">
-            <h1>Find a salon. <span>Book instantly.</span></h1>
-            <p>Discover nearby salons, compare services and reserve your preferred time without waiting.</p>
-            <div class="home-search">
-                <select id="location" aria-label="Select location">
-                    {% for loc in locations %}<option value="{{ loc }}">📍 {{ loc }}</option>{% endfor %}
-                </select>
-                <input id="search" type="search" placeholder="Search salon or service" aria-label="Search salons or services">
-                <button class="search-submit" type="button" onclick="document.getElementById('grid').scrollIntoView({behavior:'smooth'})">Search</button>
-            </div>
-            <div class="home-filters">
-                <button class="home-location-btn" id="useLocation" type="button">📍 Use my location</button>
-                <select id="distance" aria-label="Distance">
-                    <option value="100000">Any distance</option><option value="1">Within 1 km</option><option value="2">Within 2 km</option><option value="5">Within 5 km</option>
-                </select>
-                <label><input id="onlyAvailable" type="checkbox"> Available now</label>
-                <span class="home-location-status" id="locStatus"></span>
-            </div>
-        </section>
-        <section class="home-content">
-            <div class="section-heading"><div><h2>Nearby salons</h2><p>Choose a salon and book your service.</p></div></div>
-            <div class="category-row" id="chips">
-                <button class="chip active" type="button" data-category="">All</button>
-                {% for category, icon in categories %}<button class="chip" type="button" data-category="{{ category|lower }}">{{ icon }} {{ category }}</button>{% endfor %}
-            </div>
-            <div class="salon-grid" id="grid">
-                {% for salon in salons %}
-                <article class="salon-card card" data-name="{{ salon.name|lower }}" data-services="{{ salon.services|default('', true)|lower }}" data-distance="{{ salon.distance_km|default(0, true) }}" data-status="{{ salon.status|default('available', true) }}">
-                    <div class="salon-cover">{{ salon.emoji|default('💈', true) }}</div>
-                    <div class="salon-body">
-                        <h3>{{ salon.name }}</h3>
-                        <div class="salon-meta"><span>📍 {{ salon.address|default('Pune', true) }}</span><span>{{ salon.distance_km|default(0, true) }} km</span></div>
-                        <span class="salon-status">{{ salon.status|default('Available', true)|capitalize }}</span>
-                        <div class="salon-open"><span class="rating">★ {{ salon.rating|default('New', true) }}</span><a class="book-btn" href="/salon/{{ salon.id }}">View &amp; Book</a></div>
-                    </div>
-                </article>
-                {% endfor %}
-            </div>
-            <div id="empty" class="empty-state" hidden>No salons match your search.</div>
-        </section>
-    </main>
-
-    <section class="sg-chat-widget" aria-label="SalonGo customer support">
-      <div class="sg-chat-panel" id="sgChatPanel" role="dialog" aria-label="SalonGo support chat" hidden>
-        <header class="sg-chat-head"><div class="sg-chat-avatar">S</div><div class="sg-chat-title">SalonGo Assistant<span class="sg-chat-subtitle">Booking help · Pune</span></div><button class="sg-chat-close" id="sgChatClose" type="button" aria-label="Close chat">×</button></header>
-        <div class="sg-chat-messages" id="sgChatMessages" aria-live="polite"><div class="sg-chat-msg">Hi! 👋 I can help you find salons, understand booking steps, payment options, cancellations, or salon registration. What do you need?</div></div>
-        <div class="sg-chat-quick" id="sgChatQuick"><button type="button" data-sg-chat="How do I book?">How to book</button><button type="button" data-sg-chat="Payment options">Payments</button><button type="button" data-sg-chat="Cancel my booking">Cancellation</button></div>
-        <form class="sg-chat-form" id="sgChatForm"><input id="sgChatInput" name="message" autocomplete="off" maxlength="500" placeholder="Ask SalonGo..." aria-label="Message" required><button type="submit">Send</button></form>
-        <div class="sg-chat-note">Automated demo assistant · No live agent connected</div>
+  {% include "_nav.html" %}
+  <main class="home-page">
+    <section class="tz-hero">
+      <h1>Find your style. <span>Book your salon.</span></h1>
+      <p class="tz-tagline">India's #1 salon booking app · Quick · Free</p>
+      <div class="tz-search">
+        <select id="location" aria-label="Select area">
+          {% for loc in locations %}<option value="{{ loc }}">📍 {{ loc }}</option>{% endfor %}
+        </select>
+        <input id="search" type="search" placeholder="Search salons or services" aria-label="Search salons or services">
+        <button type="button" id="tzSearchButton">Search</button>
       </div>
-      <button class="sg-chat-launcher" id="sgChatLauncher" type="button" aria-expanded="false" aria-controls="sgChatPanel"><span aria-hidden="true">✦</span> Chat with us</button>
+      <div class="tz-location-row">
+        <button id="useLocation" type="button">📍 Find salons within 5 km</button>
+        <span id="locStatus" role="status">Choose an area or allow location access to find nearby salons.</span>
+      </div>
+      <div class="tz-hidden-filters" aria-hidden="true">
+        <select id="distance"><option value="5" selected>Within 5 km</option><option value="100000">Any distance</option></select>
+        <label><input id="onlyAvailable" type="checkbox"> Available now</label>
+      </div>
     </section>
-    <style>
-      .sg-chat-widget{position:fixed;right:22px;bottom:22px;z-index:2000;font-family:inherit;color:#171717}
-      .sg-chat-launcher{border:0;border-radius:999px;background:#171717;color:#fff;padding:14px 19px;font-weight:750;box-shadow:0 10px 28px #0002;cursor:pointer;display:flex;gap:9px;align-items:center}
-      .sg-chat-launcher:hover{background:#7c3aed}.sg-chat-panel{width:min(365px,calc(100vw - 28px));height:min(490px,calc(100dvh - 105px));display:flex;flex-direction:column;overflow:hidden;background:#fff;border:1px solid #e5e7eb;border-radius:18px;box-shadow:0 20px 65px #11182730;margin-bottom:12px}
-      .sg-chat-panel[hidden]{display:none}.sg-chat-head{display:flex;align-items:center;gap:10px;background:#171717;color:#fff;padding:15px}.sg-chat-avatar{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:#7c3aed;font-weight:850}
-      .sg-chat-title{flex:1;font-weight:800}.sg-chat-subtitle{display:block;font-size:12px;font-weight:500;color:#d1d5db;margin-top:3px}.sg-chat-close{border:0;background:transparent;color:#fff;font-size:25px;cursor:pointer}
-      .sg-chat-messages{padding:15px;flex:1;overflow:auto;display:flex;flex-direction:column;gap:10px;background:#fafafa}.sg-chat-msg{max-width:88%;padding:11px 13px;border-radius:14px;background:#fff;border:1px solid #e5e7eb;font-size:14px;line-height:1.45;white-space:pre-line;overflow-wrap:anywhere}
-      .sg-chat-msg.user{align-self:flex-end;background:#171717;color:#fff;border-color:#171717}.sg-chat-quick{display:flex;gap:6px;flex-wrap:wrap;padding:10px 12px 0;background:#fff}.sg-chat-quick button{border:1px solid #e5e7eb;background:#fff;border-radius:999px;padding:7px 10px;font-size:12px;cursor:pointer}
-      .sg-chat-quick button:hover{border-color:#c4b5fd;color:#6d28d9}.sg-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid #eee;background:#fff}.sg-chat-form input{min-width:0;flex:1;border:1px solid #d1d5db;border-radius:11px;padding:11px 12px;font:inherit;outline:none}
-      .sg-chat-form input:focus{border-color:#7c3aed;box-shadow:0 0 0 3px #ede9fe}.sg-chat-form button{border:0;border-radius:11px;background:#7c3aed;color:#fff;padding:0 15px;font-weight:750;cursor:pointer}.sg-chat-note{font-size:11px;color:#6b7280;padding:0 12px 10px;background:#fff}
-      @media(max-width:520px){.sg-chat-widget{right:14px;bottom:14px}.sg-chat-panel{height:min(470px,calc(100dvh - 90px))}}
-    </style>
-    <script>
-    (function(){
-      const panel=document.getElementById('sgChatPanel'), launcher=document.getElementById('sgChatLauncher'), close=document.getElementById('sgChatClose'), form=document.getElementById('sgChatForm'), input=document.getElementById('sgChatInput'), messages=document.getElementById('sgChatMessages');
-      if(!panel||!launcher||!form||!input||!messages)return;
-      const open=(yes)=>{panel.hidden=!yes;launcher.setAttribute('aria-expanded',String(yes));launcher.innerHTML=yes?'<span aria-hidden="true">✦</span> Close chat':'<span aria-hidden="true">✦</span> Chat with us';if(yes)input.focus()};
-      const add=(text,user)=>{const el=document.createElement('div');el.className='sg-chat-msg'+(user?' user':'');el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight};
-      const answer=(raw)=>{const q=raw.toLowerCase();
-        if(/\b(hi|hello|hey|good morning|good evening)\b/.test(q))return 'Hello! 👋 Welcome to SalonGo. Ask me about finding a salon, booking, payments, cancellations, or listing your salon.';
-        if(/\b(price|prices|cost|budget|cheap)\b/.test(q))return 'Prices vary by salon and service. Browse the salon cards and open “View & Book” to see the options available in this demo.';
-        if(/\b(book|booking|appointment|reserve|stylist|barber)\b/.test(q))return 'To book: browse salons, choose “View & Book”, select your service and follow the booking steps. Availability shown may be demo data; check salon details before relying on a time.';
-        if(/\b(cancel|cancellation|reschedule)\b/.test(q))return 'Open “Bookings” from the menu or your profile, sign in if needed, and check your booking details for available cancellation options. If no option appears, contact the salon directly.';
-        if(/\b(payment|pay|online|upi|cash|card)\b/.test(q))return 'Payment options depend on the salon and checkout flow. Only enter payment details on the official checkout when you are sure the booking and amount are correct. This assistant does not take payments.';
-        if(/\b(owner|register.*salon|list.*salon|my salon|salon registration)\b/.test(q))return 'Use the salon-owner option in the menu/profile to explore registration. You may need to sign in and provide salon details.';
-        if(/\b(location|nearby|area|pune|distance)\b/.test(q))return 'Use the location selector and search field on the page. If you enable location, your browser may ask permission; you can also choose a location manually.';
-        if(/\b(human|agent|support|contact|help)\b/.test(q))return 'I’m the automated demo assistant, not a live agent. For booking-specific issues, use the site’s booking details or contact the salon directly.';
-        if(/\b(thank|thanks)\b/.test(q))return 'You’re welcome! ✨ Want help with booking steps, payments, or finding a salon?';
-        return 'I can help with salon search, booking steps, payment options, cancellations, location, and salon registration. Try asking “How do I book?”';
-      };
-      launcher.addEventListener('click',()=>open(panel.hidden));close.addEventListener('click',()=>open(false));
-      form.addEventListener('submit',(e)=>{e.preventDefault();const text=input.value.trim();if(!text)return;add(text,true);input.value='';add(answer(text),false);input.focus()});
-      document.getElementById('sgChatQuick').addEventListener('click',(e)=>{const b=e.target.closest('[data-sg-chat]');if(!b)return;const text=b.getAttribute('data-sg-chat');add(text,true);add(answer(text),false)});
-      document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&!panel.hidden)open(false)});
-    })();
-    </script>
-    <script src="/js/app.js"></script>
+    <section class="home-content">
+      <div class="section-heading"><div><h2>Salons near you</h2><p>Find a great salon and reserve a time that works for you.</p></div></div>
+      <div class="category-row tz-hidden-filters" id="chips">
+        <button class="chip active" type="button" data-category="">All</button>
+        {% for category, icon in categories %}<button class="chip" type="button" data-category="{{ category|lower }}">{{ icon }} {{ category }}</button>{% endfor %}
+      </div>
+      <div class="salon-grid" id="grid">
+        {% for salon in salons %}
+        <article class="salon-card card" data-name="{{ salon.name|lower }}" data-services="{{ salon.services|default('', true)|lower }}" data-distance="{{ salon.distance_km|default(0, true) }}" data-status="{{ salon.status|default('available', true) }}">
+          <div class="salon-cover" aria-hidden="true">{{ salon.emoji|default('💈', true) }}</div>
+          <div class="salon-body">
+            <h3>{{ salon.name }}</h3>
+            <div class="salon-meta"><span>📍 {{ salon.address|default('Pune', true) }}</span><span>{{ salon.distance_km|default(0, true) }} km away</span></div>
+            <span class="salon-status">{{ salon.status|default('Available', true)|capitalize }}</span>
+            <div class="salon-open"><span class="rating">★ {{ salon.rating|default('New', true) }}</span><a class="book-btn" href="/salon/{{ salon.id }}">View &amp; Book</a></div>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+      <div id="empty" class="empty-state" hidden>No salons match your search within 5 km. Try another search or area.</div>
+    </section>
+  </main>
+  <section class="tz-chat-widget" aria-label="Shubhiii AI booking assistant">
+    <div class="tz-chat-panel" id="tzChatPanel" role="dialog" aria-label="Shubhiii assistant" hidden>
+      <header class="tz-chat-head"><div class="tz-chat-avatar">S</div><div class="tz-chat-title">Shubhiii ✨<span class="tz-chat-subtitle">Trimzee booking assistant</span></div><button class="tz-chat-close" id="tzChatClose" type="button" aria-label="Close chat">×</button></header>
+      <div class="tz-chat-messages" id="tzChatMessages" aria-live="polite"><div class="tz-chat-msg">Hi! I'm Shubhiii 💜 I can guide you through finding salons, choosing a service, booking, payments, cancellations, and salon-owner registration.</div></div>
+      <div class="tz-chat-quick" id="tzChatQuick"><button type="button" data-tz-chat="How do I book?">How to book</button><button type="button" data-tz-chat="Payment options">Payments</button><button type="button" data-tz-chat="Salon owner registration">I'm a salon owner</button></div>
+      <form class="tz-chat-form" id="tzChatForm"><input id="tzChatInput" name="message" autocomplete="off" maxlength="500" placeholder="Ask Shubhiii..." aria-label="Message Shubhiii" required><button type="submit">Send</button></form>
+      <div class="tz-chat-note">Automated assistant · Answers are guidance, not live support</div>
+    </div>
+    <button class="tz-chat-launcher" id="tzChatLauncher" type="button" aria-expanded="false" aria-controls="tzChatPanel">✦ Ask Shubhiii</button>
+  </section>
+  <script src="/js/app.js"></script>
+  <script>
+  (function(){
+    const panel=document.getElementById('tzChatPanel'),launch=document.getElementById('tzChatLauncher'),close=document.getElementById('tzChatClose'),form=document.getElementById('tzChatForm'),input=document.getElementById('tzChatInput'),messages=document.getElementById('tzChatMessages');
+    if(!panel||!launch||!form||!input||!messages)return;
+    function open(yes){panel.hidden=!yes;launch.setAttribute('aria-expanded',String(yes));if(yes)input.focus()}
+    function add(text,user){const el=document.createElement('div');el.className='tz-chat-msg'+(user?' user':'');el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight}
+    function reply(raw){const q=raw.toLowerCase();
+      if(/\b(hi|hello|hey)\b/.test(q))return 'Hey there! 💜 I’m Shubhiii. What can I help you book today?';
+      if(/book|appointment|reserve|slot|stylist|barber/.test(q))return 'Choose a salon card, tap “View & Book”, select your service and preferred slot, then confirm the booking. Always check the final slot confirmation.';
+      if(/pay|payment|upi|cash|online/.test(q))return 'Available payment methods depend on the checkout options enabled for that salon. Please confirm the amount and method before paying.';
+      if(/cancel|reschedule/.test(q))return 'Open your bookings from the profile menu and select the booking to check available cancellation options.';
+      if(/owner|register|list my salon/.test(q))return 'Open Sign in, choose the salon-owner registration option, and submit your salon details. Your salon may need admin approval before appearing publicly.';
+      if(/near|location|distance|5 km/.test(q))return 'Tap “Find salons within 5 km” and allow browser location access. Location is used by your browser to calculate nearby results.';
+      if(/thank/.test(q))return 'You’re welcome! ✨ I’m here if you need help with booking.';
+      return 'I can guide you through salon search, booking slots, payments, cancellations, nearby salons, and owner registration. Try “How do I book?”';
+    }
+    launch.addEventListener('click',()=>open(panel.hidden));close.addEventListener('click',()=>open(false));
+    form.addEventListener('submit',e=>{e.preventDefault();const text=input.value.trim();if(!text)return;add(text,true);input.value='';add(reply(text),false);input.focus()});
+    document.getElementById('tzChatQuick').addEventListener('click',e=>{const b=e.target.closest('[data-tz-chat]');if(!b)return;add(b.dataset.tzChat,true);add(reply(b.dataset.tzChat),false)});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!panel.hidden)open(false)});
+  })();
+  document.getElementById('tzSearchButton')?.addEventListener('click',()=>document.getElementById('grid')?.scrollIntoView({behavior:'smooth'}));
+  </script>
 </body>
 </html>

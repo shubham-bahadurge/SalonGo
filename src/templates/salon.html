@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/salon.css">
     <link rel="stylesheet" href="/css/auth.css">
     <link rel="stylesheet" href="/css/extra.css">
+    <link rel="stylesheet" href="/css/trimzee-refresh.css">
 </head>
 <body data-salon-id="{{ salon.id }}">
     {% include "_nav.html" %}
@@ -15,9 +16,9 @@
     <main class="container booking">
         <div class="row">
             <h1>{{ salon.emoji }} {{ salon.name }}</h1>
-            <span class="rating">★ {{ salon.rating }}{% if review_count %} <small class="muted">({{ review_count }})</small>{% endif %}</span>
+            <span class="rating">â˜… {{ salon.rating }}{% if review_count %} <small class="muted">({{ review_count }})</small>{% endif %}</span>
         </div>
-        <p class="muted">{{ "%.1f"|format(salon.distance_km) }} km away ·
+        <p class="muted">{{ "%.1f"|format(salon.distance_km) }} km away Â·
             <span class="badge {{ salon.status }}">{{ labels[salon.status] }}</span></p>
 
         <h2>1. Choose a service</h2>
@@ -27,10 +28,10 @@
                 <input type="radio" name="service" value="{{ s.id }}" {% if loop.first %}checked{% endif %}>
                 <span>{{ s.name }}</span>
                 <span class="muted">{{ s.duration_min }} min</span>
-                <strong>₹{{ s.price }}</strong>
+                <strong>â‚¹{{ s.price }}</strong>
             </label>
             {% endfor %}
         </div>
 
         <h2>2. Pick a time <small class="muted">(today, updates live)</small></h2>
-        <div id="slots" class="slots">���q�^
+        <div id="slots" class="slots">¶»§q«^
